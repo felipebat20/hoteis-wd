@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container ">
+        <h1 class="text-success text-center">Hotel Una</h1>
+        <div class="col-6 mx-auto">
+
+
+            <form>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="hoteis">Selecione o hotel: </label>
+                    <select name="hoteis" id="hoteis" required>
+                    <option value="" selected disabled>Selecione o hotel</option>
+                    <option value="hotel1">Hotel 1</option>
+                    <option value="hotel2">Hotel 2</option>
+                    <option value="hotel3">Hotel 3</option>
+                    <option value="hotel4">Hotel 4</option>
+                </select>
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="inicio">Inicio de Viagem</label>
+                    <input type="date" required id="inicio">
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="fim">Fim de Viagem</label>
+                    <input type="date" required id="fim">
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="n-hospede">Número de Hospedes</label>
+                    <input type="number" value="1" min="1" max="4" id="n-hospede">
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="nome">Nome: </label>
+                    <input type="text" placeholder="Digite seu nome: " id="nome">
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="telefone">Telefone: </label>
+                    <input type="tel" pattern="{0-9}-{5}-{0-9}{4}" id="telefone" placeholder="Digite seu nome:">
+                </div>
+                <div class="form-group" style="Display: Flex; flex-direction: column;">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Digite seu telefone" required>
+                </div>
+                <div class="form-group  ">
+                    <button type="submit" class="btn btn-primary float-md-right px-3 py-1">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- <form action="process.php" method="get" class="form">
+            <div class="form-group">
+                <Label>Selecione o hotel:</Label>
+                <input type="text" name="nome-hotel" id="hotel-name">
+            </div>
+            <div class="form-group periodo">
+                <label for="periodo">Selecione o périodo: </label>
+                <input type="date" name="periodo" id="">
+                <p>a</p>
+                <input type="date" name="periodo" id="">
+            </div>
+            <div class="form-group">
+                <label for="hospede">Quantidade de hospedes: </label>
+                <input type="number" name="hospede">
+            </div>
+
+            Dados do Responsável:
+            <div class="form-group">
+                <label for="Name">Nome: </label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="Telefone: ">Telefone:</label>
+                <input type="text" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+            </div> -->
+
+
+        <!-- </form> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
