@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const routes = require('./routes');
 const models = requireDir('./models/');
+const cors = require('cors');
 
 class App {
     constructor() {
@@ -18,6 +19,7 @@ class App {
     }
     middlewares() {
         this.app.use(express.json());
+        this.app.use(cors());
     }
     routes() {
         this.app.use('/api', require('./routes'));
