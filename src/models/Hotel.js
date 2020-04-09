@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const HotelSchema = new mongoose.Schema({
     name: {
@@ -7,6 +8,10 @@ const HotelSchema = new mongoose.Schema({
     },
     street: {
         type: String,
+        required: true,
+    },
+    number: {
+        type: Number,
         required: true,
     },
     neighborhood: {
@@ -31,4 +36,6 @@ const HotelSchema = new mongoose.Schema({
     },
 });
 
-mongoose.model('Hotel', HotelSchema);
+HotelSchema.plugin(mongoosePaginate);
+
+module.exports = mongoose.model('Hotel', HotelSchema);

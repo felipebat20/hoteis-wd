@@ -1,9 +1,13 @@
 const { Router } = require('express');
 
-const routes = express.Router();
+const routes = Router();
 
-routes.get('/', (req, res) => {
-    return res.json({ resposta: true });
-});
+const HotelController = require('./controllers/HotelControllers');
 
+
+routes.get('/hoteis', HotelController.index);
+routes.post('/hoteis', HotelController.store);
+routes.get('/hoteis/:id', HotelController.show);
+routes.put('/hoteis/:id', HotelController.update);
+routes.delete('/hoteis/:id', HotelController.destroy);
 module.exports = routes;
