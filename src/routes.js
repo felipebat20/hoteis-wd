@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const routes = new Router();
+const routes = express.Router();
 
 routes.get('/', (req, res) => {
     return res.json({ resposta: true });

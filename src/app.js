@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const requireDir = require('require-dir');
 const routes = require('./routes');
 
 class App {
@@ -9,6 +10,7 @@ class App {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
+        requireDir('./models/')
         this.middlewares();
         this.routes();
     }
