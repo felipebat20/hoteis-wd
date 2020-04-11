@@ -1,0 +1,18 @@
+.hotel-info {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.hotel-info h1 {
+    font-size: 32px;
+}
+
+.hotel-info p {
+    color: #666;
+    line-height: 24px;
+    margin-top: 5px;
+}
