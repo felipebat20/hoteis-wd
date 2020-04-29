@@ -2,9 +2,9 @@ import { Router } from 'express';
 
 const routes = new Router();
 
-import HotelController from './controllers/HotelControllers';
-import SessionController from './controllers/SessionController';
-import ReservaController from './controllers/ReservaController';
+import HotelController from './app/controllers/HotelControllers';
+import SessionController from './app/controllers/SessionController';
+import ReservaController from './app/controllers/ReservaController';
 
 routes.post('/sessions', SessionController.store);
 
