@@ -1,8 +1,8 @@
-const { Router } = require('express');
+import { Router } from 'express';
 
-const routes = Router();
+const routes = new Router();
 
-const HotelController = require('./controllers/HotelControllers');
+import HotelController from './controllers/HotelControllers';
 
 
 routes.get('/hoteis', HotelController.index);
@@ -10,4 +10,5 @@ routes.post('/hoteis', HotelController.store);
 routes.get('/hoteis/:id', HotelController.show);
 routes.put('/hoteis/:id', HotelController.update);
 routes.delete('/hoteis/:id', HotelController.destroy);
-module.exports = routes;
+
+export default routes;

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const mongoosePaginate = require('mongoose-paginate-v2');
 
 const HotelSchema = new mongoose.Schema({
@@ -30,6 +30,14 @@ const HotelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    qtdeAptos: {
+        type: Number,
+        required: false,
+    },
+    valorDiaria: {
+        type: Number,
+        required: false,
+    },
     create_at: {
         type: Date,
         default: Date.now,
@@ -38,4 +46,4 @@ const HotelSchema = new mongoose.Schema({
 
 HotelSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('Hotel', HotelSchema);
+export default mongoose.model('Hotel', HotelSchema);

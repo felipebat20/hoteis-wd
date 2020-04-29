@@ -1,8 +1,6 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const requireDir = require('require-dir');
-const routes = require('./routes');
-const models = requireDir('./models/');
+import express from 'express';
+import mongoose from 'mongoose';
+import routes from './routes';
 const cors = require('cors');
 
 class App {
@@ -14,17 +12,18 @@ class App {
             useFindAndModify: true
         });
         this.middlewares();
-        this.models;
         this.routes();
     }
+
     middlewares() {
         this.app.use(express.json());
         this.app.use(cors());
     }
+
     routes() {
-        this.app.use('/api', require('./routes'));
+        this.app.use('/api', routes);
     }
 
 }
 
-module.exports = new App().app;
+export default new App().app;
