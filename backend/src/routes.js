@@ -8,7 +8,8 @@ import ReservaController from './controllers/ReservaController';
 
 routes.post('/sessions', SessionController.store);
 
-routes.post('/:user_id/:hotel_id/reservas', ReservaController.store);
+routes.get('/reservas', ReservaController.index);
+routes.post('/reservas/:user_id/:hotel_id', ReservaController.store);
 
 routes.get('/hoteis', HotelController.index);
 routes.post('/hoteis', HotelController.store);

@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 import User from './User';
 import Hotel from './Hotel';
 
@@ -28,4 +29,5 @@ const ReservaSchema = new Schema({
 
 });
 
+ReservaSchema.plugin(mongoosePaginate);
 export default model('Reserva', ReservaSchema);
