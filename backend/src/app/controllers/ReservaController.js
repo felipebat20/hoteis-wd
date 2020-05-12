@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 import Reserva from '../models/Reserva';
 import User from '../models/User';
+import Hotel from '../models/Hotel';
 
 class ReservaController {
     async store(req, res) {
@@ -12,8 +13,16 @@ class ReservaController {
         const user = await User.findById(user_id).catch(err => {
             return res.status(401).json({ Erro: err });
         });
+
         if (!user)
             return res.status(401).json({ Erro: "User not Found" });
+
+        const hotel = await Hotel.findOne({ _id: hotel_id }).catch(err => {
+            return res.status(401).json({ ERRO: err });
+        });
+
+        if (!hotel)
+            return res.status(401).json({ Error: "Hotel not found" });
 
         const reserva = await Reserva.create({ responsavel: user_id, hotel: hotel_id, dataInicial, dataFinal, qtdeHospedes });
         return res.json(reserva);
