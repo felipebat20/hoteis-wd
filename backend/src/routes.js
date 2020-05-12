@@ -7,8 +7,9 @@ import SessionController from './app/controllers/SessionController';
 import ReservaController from './app/controllers/ReservaController';
 
 routes.post('/sessions', SessionController.store);
+routes.get('/sessions', SessionController.index);
 
-routes.get('/reservas', ReservaController.index);
+routes.get('/sessions/:user_id/reservas', ReservaController.index);
 routes.post('/reservas/:user_id/:hotel_id', ReservaController.store);
 
 routes.get('/hoteis', HotelController.index);
