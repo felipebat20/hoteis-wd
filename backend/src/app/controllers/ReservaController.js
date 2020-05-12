@@ -5,8 +5,15 @@ import User from '../models/User';
 
 class ReservaController {
     async store(req, res) {
-        const { user_id, hotel_id } = req.params;
+        const { user_id } = req.headers;
+        const { hotel_id } = req.params;
         const { dataInicial, dataFinal, qtdeHospedes } = req.body;
+
+        const user = await User.findById(user_id).catch(err => {
+            return res.status(401).json({ Erro: err });
+        });
+        if (!user)
+            return res.status(401).json({ Erro: "User not Found" });
 
         const reserva = await Reserva.create({ responsavel: user_id, hotel: hotel_id, dataInicial, dataFinal, qtdeHospedes });
         return res.json(reserva);
