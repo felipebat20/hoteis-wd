@@ -19,7 +19,8 @@ class HotelController {
 
     async store(req, res) {
         //Criar
-        const hotel = await Hotel.create(req.body);
+        const hotelImage = req.file;
+        const hotel = await Hotel.create(req.body, { nomeImage: hotelImage });
         return res.json(hotel);
     }
     async update(req, res) {
