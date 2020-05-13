@@ -38,7 +38,9 @@ const HotelSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
-    nomeImagem: String,
+    nomeImagem: {
+        type: String
+    },
     create_at: {
         type: Date,
         default: Date.now,
