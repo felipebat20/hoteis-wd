@@ -19,14 +19,29 @@ class HotelController {
 
     async store(req, res) {
         //Criar
-        const hotelImage = req.file.path;
+        const nomeImagem = req.file.path;
+        console.log(nomeImagem);
         const { name, street, number, neighborhood, cep, city, uf, qtdeAptos } = req.body;
-        const hotel = await Hotel.create({ name, street, number, neighborhood, cep, city, uf, qtdeAptos, nomeImage: hotelImage });
+        const hotel = await Hotel.create({ name, street, number, neighborhood, cep, city, uf, qtdeAptos, nomeImagem });
 
         return res.json(hotel);
     }
     async update(req, res) {
-        const hotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const { id } = req.params;
+        let hotelExist = await Hotel.findById(id);
+
+        if (!hotelExist)
+            return res.status(401).json({ erro: "Hotel not Found" });
+
+        const nomeImagem = req.file.path;
+
+        const { name, street, number, neighborhood, city, uf, qtdeAptos } = req.body;
+        const hotel = await Hotel.findByIdAndUpdate({ _id: id }, { name, street, number, neighborhood, city, uf, qtdeAptos, nomeImagem }, { new: true }).catch(err => {
+            return res.status(500).json({ error: err });
+        });
+
+
+
         return res.json(hotel);
     }
     async destroy(req, res) {

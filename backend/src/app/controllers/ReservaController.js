@@ -25,7 +25,8 @@ class ReservaController {
             return res.status(401).json({ Error: "Hotel not found" });
 
         const reserva = await Reserva.create({ responsavel: user_id, hotel: hotel_id, dataInicial, dataFinal, qtdeHospedes });
-        await reserva.populate('User').populate('hotel').execPopulate();
+        await reserva.populate('responsavel').populate('hotel').execPopulate();
+
         return res.json(reserva);
     }
     async index(req, res) {

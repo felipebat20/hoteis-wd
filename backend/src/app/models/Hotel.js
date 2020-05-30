@@ -39,7 +39,7 @@ const HotelSchema = new mongoose.Schema({
         required: false,
     },
     nomeImagem: {
-        type: String
+        type: String,
     },
     create_at: {
         type: Date,
@@ -49,4 +49,4 @@ const HotelSchema = new mongoose.Schema({
 
 HotelSchema.plugin(mongoosePaginate);
 
-export default mongoose.model('Hotel', HotelSchema);
+export default new mongoose.model('Hotel', HotelSchema);
